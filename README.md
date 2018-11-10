@@ -1,24 +1,7 @@
 # README
+こんな感じのが毎時間、投稿されるTwitterBotを作成中💪
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+> rails(ver 5-2-1)のメソッドをコードを読んで勉強しよう🙌  
+> class: ActiveSupport  
+> method: eager_load!  
+> url: https://github.com/rails/rails/blob/5-2-1/activesupport/lib/active_support.rb#L78
