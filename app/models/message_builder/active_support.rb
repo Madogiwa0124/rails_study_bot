@@ -22,7 +22,7 @@ class MessageBuilder::ActiveSupport
   private
 
   def sample_method
-    @method = ActiveSupport.methods.sample
+    @method = ActiveSupport.public_methods(false).sample
   end
 
   def source_location
