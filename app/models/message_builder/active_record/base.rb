@@ -1,6 +1,6 @@
 class MessageBuilder::ActiveRecord::Base
   require "active_record"
-  
+
   RAILS_VERSION = '5-2-1'
 
   def self.build
@@ -24,7 +24,7 @@ class MessageBuilder::ActiveRecord::Base
   private
 
   def sample_method
-    @method = ActiveRecord::Base.public_methods(false).sample
+    @method = ActiveRecord::Base.public_methods.sample
   end
 
   def source_location
