@@ -1,10 +1,10 @@
 class MessageBuilder::ActiveRecord::Base
-  require "active_record"
+  require 'active_record'
 
-  RAILS_VERSION = '5-2-stable'
+  RAILS_VERSION = '5-2-stable'.freeze
 
   def self.build
-    self.new.message
+    new.message
   end
 
   def initialize
@@ -13,12 +13,12 @@ class MessageBuilder::ActiveRecord::Base
   end
 
   def message
-    <<~"EOS"
+    <<~"MSG"
       rails(ver #{RAILS_VERSION})のメソッドをコードを読んで勉強しよう🙌
       class: ActiveRecord::Base
       method: #{@method}
       url: #{github_url}
-    EOS
+    MSG
   end
 
   private
@@ -32,7 +32,7 @@ class MessageBuilder::ActiveRecord::Base
   end
 
   def make_method_and_location
-    while @location.nil? || !active_record_method? do
+    while @location.nil? || !active_record_method?
       sample_method
       source_location
     end
@@ -48,7 +48,7 @@ class MessageBuilder::ActiveRecord::Base
   end
 
   def init_method_location
-    @method = ""
+    @method = ''
     @location = nil
   end
 

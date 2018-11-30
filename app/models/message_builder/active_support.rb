@@ -1,8 +1,8 @@
 class MessageBuilder::ActiveSupport
-  RAILS_VERSION = '5-2-stable'
+  RAILS_VERSION = '5-2-stable'.freeze
 
   def self.build
-    self.new.message
+    new.message
   end
 
   def initialize
@@ -11,12 +11,12 @@ class MessageBuilder::ActiveSupport
   end
 
   def message
-    <<~"EOS"
+    <<~"MSG"
       rails(ver #{RAILS_VERSION})のメソッドをコードを読んで勉強しよう🙌
       class: ActiveSupport
       method: #{@method}
       url: #{github_url}
-    EOS
+    MSG
   end
 
   private
@@ -30,7 +30,7 @@ class MessageBuilder::ActiveSupport
   end
 
   def make_method_and_location
-    while @location.nil? do
+    while @location.nil?
       sample_method
       source_location
     end
@@ -46,7 +46,7 @@ class MessageBuilder::ActiveSupport
   end
 
   def init_method_location
-    @method = ""
+    @method = ''
     @location = nil
   end
 

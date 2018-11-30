@@ -1,6 +1,6 @@
 class TwitterClient
   require 'dotenv/load'
-  
+
   def initialize
     # クライアントの生成
     @client = Twitter::REST::Client.new do |config|
@@ -14,8 +14,8 @@ class TwitterClient
   # Tweetの投稿処理呼び出し
   def tweet
     @client.update(text)
-  rescue => e
-    p e # エラー時はログを出力
+  rescue StandardError => e
+    logger.error e # エラー時はログを出力
   end
 
   private
