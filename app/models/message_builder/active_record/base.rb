@@ -32,7 +32,7 @@ class MessageBuilder::ActiveRecord::Base
   end
 
   def make_method_and_location
-    while @location.nil? do
+    while @location.nil? || !active_record_method? do
       sample_method
       source_location
     end
@@ -58,5 +58,9 @@ class MessageBuilder::ActiveRecord::Base
 
   def github_base_url
     "https://github.com/rails/rails/blob/#{RAILS_VERSION}/activerecord/lib/"
+  end
+
+  def active_record_method?
+    @location[0].match?(/active_record/)
   end
 end

@@ -26,7 +26,10 @@ class TwitterClient
   end
 
   def sample_rails_method_message
-    # TODO: ActiveSupport以外もつぶやくようにする
-    MessageBuilder::ActiveSupport.build
+    case rand(1..2)
+    when 1 then MessageBuilder::ActiveSupport.build
+    when 2 then MessageBuilder::ActiveRecord::Base.build
+    else MessageBuilder::ActiveRecord::Base.build
+    end
   end
 end
