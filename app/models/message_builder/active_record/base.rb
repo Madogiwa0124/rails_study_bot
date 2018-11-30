@@ -1,7 +1,7 @@
 class MessageBuilder::ActiveRecord::Base
   require "active_record"
 
-  RAILS_VERSION = '5-2-1'
+  RAILS_VERSION = '5-2-stable'
 
   def self.build
     self.new.message
