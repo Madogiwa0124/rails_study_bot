@@ -30,7 +30,7 @@ class MessageBuilder::ActiveSupport
   end
 
   def make_method_and_location
-    while @location.nil?
+    while @location.nil? || !active_support_method?
       sample_method
       source_location
     end
@@ -56,5 +56,9 @@ class MessageBuilder::ActiveSupport
 
   def github_base_url
     "https://github.com/rails/rails/blob/#{RAILS_VERSION}/activesupport/lib/"
+  end
+
+  def active_support_method?
+    @location[0].match?(/active_support/)
   end
 end
