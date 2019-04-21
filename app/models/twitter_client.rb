@@ -26,10 +26,11 @@ class TwitterClient
   end
 
   def sample_rails_method_message
-    case rand(1..4)
+    case rand(1..5)
     when 1 then MessageBuilder::ActiveSupport.build
     when 2 then MessageBuilder::ActiveRecord::Base.build
-    when 3..4 then MessageBuilder::Actionpack::ActionController::Base.build
+    when 3 then MessageBuilder::Actionpack::ActionController::Base.build
+    when 4..5 then MessageBuilder::ActionView::Base.build
     else MessageBuilder::ActiveRecord::Base.build
     end
   end
