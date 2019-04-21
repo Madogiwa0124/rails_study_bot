@@ -3,6 +3,7 @@ class MessageBuilder::Base
 
   RAILS_VERSION = '5-2-stable'.freeze
   RAILS_CLASS = ActiveSupport
+  RAILS_TOP_CLASS_NAME = 'activesupport'
   RAILS_CLASS_FILE_REGXP = /active_support.*/.freeze
   RAILS_CLASS_REGXP = /active_support/.freeze
 
@@ -32,7 +33,7 @@ class MessageBuilder::Base
   end
 
   def const_defined?
-    RAILS_VERSION && self.class::RAILS_CLASS && self.class::RAILS_CLASS_FILE_REGXP && self.class::RAILS_CLASS_REGXP
+    RAILS_VERSION && self.class::RAILS_CLASS && self.class::RAILS_CLASS_FILE_REGXP && self.class::RAILS_CLASS_REGXP && self.class::RAILS_TOP_CLASS_NAME
   end
 
   def sample_method
@@ -69,7 +70,7 @@ class MessageBuilder::Base
   end
 
   def github_base_url
-    "https://github.com/rails/rails/blob/#{self.class::RAILS_VERSION}/activesupport/lib/"
+    "https://github.com/rails/rails/blob/#{self.class::RAILS_VERSION}/#{self.class::RAILS_TOP_CLASS_NAME}/lib/"
   end
 
   def active_support_method?
