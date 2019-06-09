@@ -37,15 +37,23 @@ class MessageBuilder::Base
   end
 
   def sample_method
-    @method = self.class::RAILS_CLASS.public_methods.sample
+    @method = if self.class::RAILS_CLASS.class == Module
+      self.class::RAILS_CLASS.public_instance_methods.sample
+    else
+      self.class::RAILS_CLASS.public_methods.sample
+    end
   end
 
   def source_location
-    @location = self.class::RAILS_CLASS.method(@method)&.source_location
+    @location = if self.class::RAILS_CLASS.class == Module
+      self.class::RAILS_CLASS.public_instance_method(@method)&.source_location
+    else
+      self.class::RAILS_CLASS.method(@method)&.source_location
+    end
   end
 
   def make_method_and_location
-    while @location.nil? || !active_support_method?
+    while @location.nil? || !target_class_method?
       sample_method
       source_location
     end
@@ -73,7 +81,7 @@ class MessageBuilder::Base
     "https://github.com/rails/rails/blob/#{self.class::RAILS_VERSION}/#{self.class::RAILS_TOP_CLASS_NAME}/lib/"
   end
 
-  def active_support_method?
+  def target_class_method?
     @location[0].match?(self.class::RAILS_CLASS_REGXP)
   end
 end
