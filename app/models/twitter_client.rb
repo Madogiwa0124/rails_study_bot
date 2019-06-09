@@ -26,15 +26,19 @@ class TwitterClient
   end
 
   def sample_rails_method_message
-    case rand(1..8)
-    when 1 then MessageBuilder::ActiveSupport.build
-    when 2 then MessageBuilder::ActiveRecord::Base.build
-    when 3 then MessageBuilder::ActiveRecord::Relation::QueryMethods.build
-    when 4 then MessageBuilder::ActiveRecord::Relation::Calculations.build
-    when 5 then MessageBuilder::ActiveRecord::Relation::FinderMethods.build
-    when 6 then MessageBuilder::ActiveRecord::Relation::Batches.build
-    when 7 then MessageBuilder::Actionpack::ActionController::Base.build
-    when 8 then MessageBuilder::ActionView::Base.build
+    case rand(1..12)
+    when 1  then MessageBuilder::ActiveSupport.build
+    when 2  then MessageBuilder::ActiveRecord::Base.build
+    when 3  then MessageBuilder::ActiveRecord::Relation::QueryMethods.build
+    when 4  then MessageBuilder::ActiveRecord::Relation::Calculations.build
+    when 5  then MessageBuilder::ActiveRecord::Relation::FinderMethods.build
+    when 6  then MessageBuilder::ActiveRecord::Relation::Batches.build
+    when 7  then MessageBuilder::Actionpack::ActionController::Base.build
+    when 8  then MessageBuilder::ActionView::Base.build
+    when 9  then MessageBuilder::ActionView::Helpers::FormTagHelper.build
+    when 10 then MessageBuilder::ActionView::Helpers::FormOptionsHelper.build
+    when 11  then MessageBuilder::ActionView::Helpers::AssetTagHelper.build
+    when 12 then MessageBuilder::ActionView::Helpers::AssetUrlHelper.build
     else MessageBuilder::ActiveRecord::Base.build
     end
   end
