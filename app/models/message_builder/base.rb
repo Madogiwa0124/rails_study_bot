@@ -3,9 +3,10 @@ class MessageBuilder::Base
 
   RAILS_VERSION = '6-0-stable'.freeze
   RAILS_CLASS = ActiveSupport
-  RAILS_TOP_CLASS_NAME = 'activesupport'
+  RAILS_TOP_CLASS_NAME = 'activesupport'.freeze
   RAILS_CLASS_FILE_REGXP = /active_support.*/.freeze
   RAILS_CLASS_REGXP = /active_support/.freeze
+  RAILS_REPOSITORY_BASE_URL = 'https://github.com/rails/rails'.freeze
 
   def self.build
     new.message
@@ -33,27 +34,21 @@ class MessageBuilder::Base
   end
 
   def const_defined?
-    RAILS_VERSION && self.class::RAILS_CLASS && self.class::RAILS_CLASS_FILE_REGXP && self.class::RAILS_CLASS_REGXP && self.class::RAILS_TOP_CLASS_NAME
+    RAILS_VERSION \
+    && self.class::RAILS_CLASS \
+    && self.class::RAILS_CLASS_FILE_REGXP \
+    && self.class::RAILS_CLASS_REGXP \
+    && self.class::RAILS_TOP_CLASS_NAME
   end
 
   def sample_method
-    @method = if self.class::RAILS_CLASS.class == Module
-      self.class::RAILS_CLASS.public_instance_methods.sample
-    else
-      (self.class::RAILS_CLASS.public_methods | self.class::RAILS_CLASS.public_instance_methods).uniq.sample
-    end
+    @method = (self.class::RAILS_CLASS.public_methods | self.class::RAILS_CLASS.public_instance_methods).uniq.sample
   end
 
   def source_location
-    @location = if self.class::RAILS_CLASS.class == Module
-      self.class::RAILS_CLASS.public_instance_method(@method)&.source_location
-    else
-      begin
-        self.class::RAILS_CLASS.method(@method)&.source_location
-      rescue
-        self.class::RAILS_CLASS.instance_method(@method)&.source_location
-      end
-    end
+    @location = self.class::RAILS_CLASS.public_method(@method).source_location
+  rescue
+    @location = self.class::RAILS_CLASS.public_instance_method(@method).source_location
   end
 
   def make_method_and_location
@@ -82,7 +77,7 @@ class MessageBuilder::Base
   end
 
   def github_base_url
-    "https://github.com/rails/rails/blob/#{self.class::RAILS_VERSION}/#{self.class::RAILS_TOP_CLASS_NAME}/lib/"
+    "#{RAILS_REPOSITORY_BASE_URL}/blob/#{self.class::RAILS_VERSION}/#{self.class::RAILS_TOP_CLASS_NAME}/lib/"
   end
 
   def target_class_method?
