@@ -40,7 +40,7 @@ class MessageBuilder::Base
     @method = if self.class::RAILS_CLASS.class == Module
       self.class::RAILS_CLASS.public_instance_methods.sample
     else
-      self.class::RAILS_CLASS.public_methods.sample
+      (self.class::RAILS_CLASS.public_methods | self.class::RAILS_CLASS.public_instance_methods).uniq.sample
     end
   end
 
@@ -48,7 +48,11 @@ class MessageBuilder::Base
     @location = if self.class::RAILS_CLASS.class == Module
       self.class::RAILS_CLASS.public_instance_method(@method)&.source_location
     else
-      self.class::RAILS_CLASS.method(@method)&.source_location
+      begin
+        self.class::RAILS_CLASS.method(@method)&.source_location
+      rescue
+        self.class::RAILS_CLASS.instance_method(@method)&.source_location
+      end
     end
   end
 
