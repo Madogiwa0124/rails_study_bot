@@ -4,7 +4,7 @@ class MessageBuilder::ActionView::Helpers::FormOptionsHelper < MessageBuilder::B
   require 'action_view/helpers/form_options_helper'
 
   RAILS_CLASS = ActionView::Helpers::FormOptionsHelper
-  RAILS_TOP_CLASS_NAME = 'actionview'
-  RAILS_CLASS_FILE_REGXP = /action_view\/helpers\/form_options_helper.rb/.freeze
+  RAILS_TOP_CLASS_NAME = 'actionview'.freeze
+  RAILS_CLASS_FILE_REGXP = %r{action_view/helpers/form_options_helper.rb}.freeze
   RAILS_CLASS_REGXP = /form_options_helper/.freeze
 end

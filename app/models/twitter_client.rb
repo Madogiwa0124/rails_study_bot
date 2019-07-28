@@ -25,6 +25,7 @@ class TwitterClient
     sample_rails_method_message
   end
 
+  # rubocop:disable Metrics/MethodLength
   def sample_rails_method_message
     [
       MessageBuilder::ActiveSupport,
@@ -51,7 +52,8 @@ class TwitterClient
       MessageBuilder::ActionView::Helpers::FormTagHelper,
       MessageBuilder::ActionView::Helpers::FormOptionsHelper,
       MessageBuilder::ActionView::Helpers::AssetTagHelper,
-      MessageBuilder::ActionView::Helpers::AssetUrlHelper,
+      MessageBuilder::ActionView::Helpers::AssetUrlHelper
     ].sample.build
+    # rubocop:enable Metrics/MethodLength
   end
 end
