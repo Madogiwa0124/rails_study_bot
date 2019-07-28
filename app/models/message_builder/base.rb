@@ -47,7 +47,7 @@ class MessageBuilder::Base
 
   def source_location
     @location = self.class::RAILS_CLASS.public_method(@method).source_location
-  rescue
+  rescue StandardError
     @location = self.class::RAILS_CLASS.public_instance_method(@method).source_location
   end
 
