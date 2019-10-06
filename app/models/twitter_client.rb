@@ -45,6 +45,7 @@ class TwitterClient
       MessageBuilder::ActiveSupport::CoreExt::Range,
       MessageBuilder::ActiveSupport::CoreExt::String,
       MessageBuilder::ActiveSupport::CoreExt::Time,
+      MessageBuilder::ActiveSupport::Dependencies,
       MessageBuilder::ActiveRecord::Base,
       MessageBuilder::ActiveRecord::Relation::QueryMethods,
       MessageBuilder::ActiveRecord::Relation::Calculations,
