@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe MessageBuilder::ActiveSupport::CoreExt::Hash::Keys, type: :model do
+RSpec.describe MessageBuilder::ActiveSupport::CoreExt::Integer, type: :model do
   describe '.build' do
     it 'classが表示されること' do
-      expect(described_class.build.include?('class: Hash')).to eq true
+      expect(described_class.build.include?('class: Integer')).to eq true
     end
 
     it 'methodが表示されること' do

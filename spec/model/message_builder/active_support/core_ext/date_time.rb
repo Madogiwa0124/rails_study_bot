@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe MessageBuilder::ActiveSupport::CoreExt::Kernel::Reporting, type: :model do
+RSpec.describe MessageBuilder::ActiveSupport::CoreExt::DateTime, type: :model do
   describe '.build' do
     it 'classが表示されること' do
-      expect(described_class.build.include?('class: Kernel')).to eq true
+      expect(described_class.build.include?('class: DateTime')).to eq true
     end
 
     it 'methodが表示されること' do

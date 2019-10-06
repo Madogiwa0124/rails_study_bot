@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe MessageBuilder::ActiveSupport::CoreExt::DateTime::Conversions, type: :model do
+RSpec.describe MessageBuilder::ActiveSupport::CoreExt::Numeric, type: :model do
   describe '.build' do
     it 'classが表示されること' do
-      expect(described_class.build.include?('class: DateTime')).to eq true
+      expect(described_class.build.include?('class: Numeric')).to eq true
     end
 
     it 'methodが表示されること' do

@@ -1,9 +1,9 @@
 require 'rails_helper'
 
-RSpec.describe MessageBuilder::ActiveSupport::CoreExt::Integer::Time, type: :model do
+RSpec.describe MessageBuilder::ActiveSupport::CoreExt::Date, type: :model do
   describe '.build' do
     it 'classが表示されること' do
-      expect(described_class.build.include?('class: Integer')).to eq true
+      expect(described_class.build.include?('class: Date')).to eq true
     end
 
     it 'methodが表示されること' do
