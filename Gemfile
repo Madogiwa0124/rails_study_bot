@@ -16,6 +16,7 @@ gem 'dotenv'
 group :development, :test do
   gem 'pry-rails'
   gem "factory_bot_rails"
+  gem 'rb-readline'
 end
 
 group :development do
