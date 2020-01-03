@@ -18,7 +18,7 @@ ClassAndModuleChildren:
   Enabled: false
 
 AllCops:
-  TargetRubyVersion: 2.6.3
+  TargetRubyVersion: 2.7.0
   Exclude:
     - db/**/*
     - vendor/**/*
