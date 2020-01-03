@@ -15,7 +15,7 @@ class TwitterClient
   def tweet
     @client.update(text)
   rescue StandardError => e
-    logger.error e # エラー時はログを出力
+    Rails.logger.error e # エラー時はログを出力
   end
 
   private
