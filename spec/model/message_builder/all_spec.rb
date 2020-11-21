@@ -1,8 +1,8 @@
 require 'rails_helper'
 
 RSpec.describe 'All MessageBuilder', type: :model do
-  MESSAGE_BUILDER_PATH = Rails.root.join('app/models/message_builder/').freeze
-  Dir[File.expand_path(MESSAGE_BUILDER_PATH, __FILE__) << '/**/*.rb'].sort.each do |file|
+  message_builder_path = Rails.root.join('app/models/message_builder/').freeze
+  Dir[File.expand_path(message_builder_path, __FILE__) << '/**/*.rb'].sort.each do |file|
     require file
   end
 

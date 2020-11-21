@@ -1,24 +1,25 @@
 require: rubocop-rails
 
 # 日本語でのコメントを許可
-AsciiComments:
+Style/AsciiComments:
   Enabled: false
 
 # クラスにコメントを残さない
-Documentation:
+Style/Documentation:
   Enabled: false
 
-LineLength:
+Layout/LineLength:
   Max: 120
 
-FrozenStringLiteralComment:
+Style/FrozenStringLiteralComment:
   Enabled: false
 
-ClassAndModuleChildren:
+Style/ClassAndModuleChildren:
   Enabled: false
 
 AllCops:
   TargetRubyVersion: 2.7.0
+  NewCops: enable
   Exclude:
     - db/**/*
     - vendor/**/*
