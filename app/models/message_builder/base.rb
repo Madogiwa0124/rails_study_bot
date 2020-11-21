@@ -1,7 +1,7 @@
 class MessageBuilder::Base
   class NotDefinedRequireConstant < StandardError; end
 
-  RAILS_VERSION = '6-0-stable'.freeze
+  RAILS_VERSION = '6-1-stable'.freeze
   RAILS_CLASS = ActiveSupport
   RAILS_TOP_CLASS_NAME = 'activesupport'.freeze
   RAILS_CLASS_FILE_REGXP = /active_support.*/.freeze
