@@ -15,7 +15,7 @@ Bundler.require(*Rails.groups)
 module RailsStudyBot
   class Application < Rails::Application
     config.autoload_paths += Dir["#{config.root}/lib"]
-    config.load_defaults 6.0
+    config.load_defaults 6.1
     config.time_zone = 'Tokyo'
     config.generators do |g|
       g.assets      false
