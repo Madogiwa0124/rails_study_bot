@@ -73,7 +73,7 @@ GEM
     dotenv (2.7.6)
     equalizer (0.0.11)
     erubi (1.10.0)
-    ffi (1.13.1)
+    ffi (1.14.2)
     ffi-compiler (1.0.1)
       ffi (>= 1.0.0)
       rake
@@ -92,7 +92,7 @@ GEM
     http_parser.rb (0.6.0)
     i18n (1.8.5)
       concurrent-ruby (~> 1.0)
-    listen (3.3.1)
+    listen (3.4.1)
       rb-fsevent (~> 0.10, >= 0.10.3)
       rb-inotify (~> 0.9, >= 0.9.10)
     loofah (2.7.0)
@@ -231,7 +231,7 @@ PLATFORMS
 
 DEPENDENCIES
   dotenv
-  listen (>= 3.0.5, < 3.4)
+  listen (>= 3.0.5, < 3.5)
   puma (~> 5.0)
   rails (~> 6.1.rc1)
   rb-readline
