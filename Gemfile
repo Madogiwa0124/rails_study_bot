@@ -5,7 +5,7 @@ ruby '2.7.0'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 6.1.rc1'
-gem 'puma', '~> 5.0'
+gem 'puma', '~> 5.2'
 gem 'twitter'
 gem 'dotenv'
 

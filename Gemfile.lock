@@ -111,14 +111,14 @@ GEM
     minitest (5.14.2)
     multipart-post (2.1.1)
     naught (1.1.0)
-    nio4r (2.5.4)
+    nio4r (2.5.5)
     nokogiri (1.10.10)
       mini_portile2 (~> 2.4.0)
     parallel (1.20.0)
     parser (2.7.2.0)
       ast (~> 2.4.1)
     public_suffix (4.0.3)
-    puma (5.0.4)
+    puma (5.2.2)
       nio4r (~> 2.0)
     rack (2.2.3)
     rack-test (1.1.0)
@@ -232,7 +232,7 @@ PLATFORMS
 DEPENDENCIES
   dotenv
   listen (>= 3.0.5, < 3.4)
-  puma (~> 5.0)
+  puma (~> 5.2)
   rails (~> 6.1.rc1)
   rb-readline
   rspec-rails
